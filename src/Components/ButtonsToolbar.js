@@ -8,22 +8,22 @@ const ButtonsToolbar = () => {
         <>
             <StyledRow>
                 <Col md={3}>
-                    <Button as={Link} to="/live">
-                        Galeria
-                    </Button>
-                </Col>
-                <Col md={3}>
-                    <Button as={Link} to="/zostan-wolontariuszem">
-                        Aukcje
-                    </Button>
-                </Col>
-                <Col md={3}>
-                    <Button as={Link} to="/aukcje">
+                    <Button id="b1" as={Link} to="/live">
                         Na żywo
                     </Button>
                 </Col>
                 <Col md={3}>
-                    <Button as={Link} to="/wplac-na-wosp">
+                    <Button id="b2" as={Link} to="/zostan-wolontariuszem">
+                        Zostan wolontariuszem
+                    </Button>
+                </Col>
+                <Col md={3}>
+                    <Button id="b3" as={Link} to="/aukcje">
+                        Na żywo
+                    </Button>
+                </Col>
+                <Col md={3}>
+                    <Button id="b4" as={Link} to="/wplac-na-wosp">
                         Wpłać na WOŚP
                     </Button>
                 </Col>
@@ -56,7 +56,7 @@ const StyledRow = styled(Row)`
     }
 
     a {
-        background: #a50a00;
+        /* background: #a50a00; */
         border: none;
 
         font-size: 25px;
@@ -72,6 +72,21 @@ const StyledRow = styled(Row)`
 
         text-transform: uppercase;
     }
-`;
+
+    #b1 {
+        background-color: ${({ theme }) => theme.color.orange};
+    }
+
+    #b2 {
+        background-color: ${({ theme }) => theme.color.yellow};
+    }
+
+    #b3 {
+        background-color: ${({ theme }) => theme.color.black};
+    }
+
+    #b4 {
+        background-color: ${({ theme }) => theme.color.navyBlue} ;
+}`;
 
 export default ButtonsToolbar;

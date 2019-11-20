@@ -6,7 +6,6 @@ import {
     ButtonsToolbar,
     PostCardGrid,
     FacebookCardGrid,
-    BootstrapTest,
 } from '../Components';
 
 const Home = () => {
@@ -15,7 +14,6 @@ const Home = () => {
             <Row>
                 <Col sm={12}>
                     <Slider />
-                    <BootstrapTest />
                 </Col>
             </Row>
 
