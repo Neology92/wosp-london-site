@@ -1,7 +1,7 @@
 import React from 'react';
 // import styled from 'styled-components';
 import { Col, Row, Container } from 'react-bootstrap';
-import { Slider } from '../Components';
+import { Slider, BootstrapTest } from '../Components';
 
 const Home = () => {
     return (
@@ -9,6 +9,7 @@ const Home = () => {
             <Row>
                 <Col sm={12}>
                     <Slider />
+                    <BootstrapTest />
                 </Col>
             </Row>
         </Container>
