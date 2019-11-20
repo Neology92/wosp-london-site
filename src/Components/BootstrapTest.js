@@ -25,7 +25,6 @@ const BootstrapTest = () => {
                             elit. Saepe a explicabo repellat cumque
                             exercitationem! Consequuntur consequatur deserunt
                             quod quidem nisi expedita officia quisquam,
-                            voluptatibus odio, enim magnam unde, et atque.
                         </Content>
                     </SCol>
                     <SCol sm={3}>22</SCol>
