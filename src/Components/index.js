@@ -6,4 +6,19 @@ import Footer from './Footer';
 import Slider from './Slider';
 import BootstrapTest from './BootstrapTest';
 
-export { Logo, Cheese, Dunno, Footer, Header, Slider, BootstrapTest };
+import ButtonsToolbar from './ButtonsToolbar';
+import PostCardGrid from './PostCardGrid';
+import FacebookCardGrid from './FacebookCardGrid';
+
+export {
+    Logo,
+    Cheese,
+    Dunno,
+    Footer,
+    Header,
+    Slider,
+    ButtonsToolbar,
+    PostCardGrid,
+    FacebookCardGrid,
+    BootstrapTest,
+};
