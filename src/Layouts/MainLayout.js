@@ -10,36 +10,29 @@ import theme from '../Assets/Styles/theme';
 import { Header, Footer, Breadcrumbs } from '../Components';
 
 const MainLayout = ({ children }) => {
-    const getCurrentSection = path => {
-        return path.split('/')[1];
-    };
-
-    const setColor = path => {
-        const section = getCurrentSection(path);
-
-        if (section === 'aktualnosci') {
-            return theme.color.red;
-        } if (section === 'informacje') {
-            return theme.color.blue;
-        } if (section === 'wspieraj-nas') {
-            return theme.color.orange;
-        } if (section === 'kontakt') {
-            return theme.color.yellow;
-        } 
-            return 'none';
-        
-    };
-
     const location = useLocation();
-    const sectionColor = setColor(location.pathname);
+
+    let preSlug = '';
+    if (
+        // If localhost - dont use prefix
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1'
+    ) {
+        preSlug = '';
+    } else if (
+        // Prefix if hosted on github
+        window.location.hostname === 'neology92.github.io'
+    ) {
+        preSlug = '/wosp-london-site';
+    }
 
     return (
         <>
             <ThemeProvider theme={theme}>
                 <>
                     <GlobalStyle />
-                    <Header sectionColor={sectionColor} />
-                    {location.pathname === `/` ? null : (
+                    <Header />
+                    {location.pathname === `${preSlug}/` ? null : (
                         <Breadcrumbs /> // Show breadcrumbs everywhere but homepage
                     )}
                     <StyledMain>{children}</StyledMain>

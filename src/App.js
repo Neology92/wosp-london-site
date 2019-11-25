@@ -41,76 +41,97 @@ class App extends Component {
     }
 
     render() {
+        let preSlug = '';
+        if (
+            // If localhost - dont use prefix
+            window.location.hostname === 'localhost' ||
+            window.location.hostname === '127.0.0.1'
+        ) {
+            preSlug = '';
+        } else if (
+            // Prefix if hosted on github
+            window.location.hostname === 'neology92.github.io'
+        ) {
+            preSlug = '/wosp-london-site';
+        }
+
         const { data } = this.state;
 
         return (
             <Router>
                 <MainLayout>
                     <Switch>
-                        <Route exact path="/" component={views.Home} />
-                        <Route exact path="/aktualnosci">
+                        <Route
+                            exact
+                            path={`${preSlug}/`}
+                            component={views.Home}
+                        />
+                        <Route exact path={`${preSlug}/aktualnosci`}>
                             <Redirect to="/aktualnosci/artykuly" />
                         </Route>
                         <Route
                             exact
-                            path="/aktualnosci/artykuly"
+                            path={`${preSlug}/aktualnosci/artykuly`}
                             component={views.Posts}
                         />
                         {data.map(post => (
                             <Route
                                 key={post.id}
-                                path={`/aktualnosci/artykuly/${post.slug}`}
+                                path={`${preSlug}/aktualnosci/artykuly/${post.slug}`}
                                 render={props => (
                                     <PostTemplate post={post} {...props} />
                                 )}
                             />
                         ))}
                         <Route
-                            path="/aktualnosci/podcasty"
+                            path={`${preSlug}/aktualnosci/podcasty`}
                             component={views.Podcasts}
                         />
                         <Route
-                            path="/aktualnosci/live"
+                            path={`${preSlug}/aktualnosci/live`}
                             component={views.Live}
                         />
                         <Route
-                            path="/aktualnosci/galeria"
+                            path={`${preSlug}/aktualnosci/galeria`}
                             component={views.Gallery}
                         />
 
-                        <Route exact path="/informacje">
+                        <Route exact path={`${preSlug}/informacje`}>
                             <Redirect to="/informacje/program" />
                         </Route>
                         <Route
-                            path="/informacje/program"
+                            path={`${preSlug}/informacje/program`}
                             component={views.Program}
                         />
                         <Route
-                            path="/informacje/gwiazdy"
+                            path={`${preSlug}/informacje/gwiazdy`}
                             component={views.Stars}
                         />
                         <Route
-                            path="/informacje/partnerzy"
+                            path={`${preSlug}/informacje/partnerzy`}
                             component={views.Partners}
                         />
 
-                        <Route exact path="/wspieraj-nas">
+                        <Route exact path={`${preSlug}/wspieraj-nas`}>
                             <Redirect to="/wspieraj-nas/zostan-wolontariuszem" />
                         </Route>
                         <Route
-                            path="/wspieraj-nas/zostan-wolontariuszem"
+                            path={`${preSlug}/wspieraj-nas/zostan-wolontariuszem`}
                             component={views.Volunteer}
                         />
                         <Route
-                            path="/wspieraj-nas/wplac-na-wosp"
+                            path={`${preSlug}/wspieraj-nas/wplac-na-wosp`}
                             component={views.Support}
                         />
                         <Route
-                            path="/wspieraj-nas/aukcje"
+                            path={`${preSlug}/wspieraj-nas/aukcje`}
                             component={views.Auctions}
                         />
 
-                        <Route path="/kontakt" component={views.Contact} />
+                        <Route
+                            path={`${preSlug}/kontakt`}
+                            component={views.Contact}
+                        />
                     </Switch>
                 </MainLayout>
             </Router>
